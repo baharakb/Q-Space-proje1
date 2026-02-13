@@ -1,0 +1,400 @@
+/*Genel Ayarlar*/
+* {
+    margin: 0;
+    /*kenar boşluklarını sıfırladım*/
+    padding: 0;
+    /*iç boşlukları sıfırladım*/
+    box-sizing: border-box;
+    /*kutuların boyutunu ayarladım*/
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+
+    /* ARKA PLAN AYARLARI */
+
+    /* Resim yüklenmezse diye arka rengi siyah yaptım */
+    background-color: #0b0d17;
+
+    /* İnternetten bulduğum uzay resmini arka plan yaptım */
+    background-image: url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?q=80&w=1920&auto=format&fit=crop');
+    /* Resmi ekrana tam sığdırmak için bunu kullandım */
+    background-size: cover;
+
+    /* Resim tekrar etmesin (tek parça dursun) */
+    background-repeat: no-repeat;
+
+    /* Sayfadaki tüm yazıları beyaz yaptım */
+    color: #ffffff;
+}
+
+/* ÜST MENÜ (HEADER */
+.main-header {
+    /* Menünün arka planı hafif şeffaf olsun */
+    background-color: rgba(255, 255, 255, 0.1);
+
+    /* İçerik kenarlara yapışmasın diye boşluk verdim */
+    padding: 20px 40px;
+
+    /* Logoyu ve linkleri yan yana getirmek için flex kullandım */
+    display: flex;
+
+    /* Biri en sağa, biri en sola gitsin */
+    justify-content: space-between;
+
+    /* Dikey olarak ortalansınlar */
+    align-items: center;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    /* Harflerin arasını biraz açtım, daha hoş duruyor */
+    letter-spacing: 2px;
+}
+
+/* Menüdeki linklerin ayarı */
+.navbar a {
+    /* Linklerin soluna boşluk koydum ki birbirlerine girmesinler */
+    margin-left: 20px;
+    font-size: 16px;
+    /* Rengi beyaz yaptım */
+    color: #d0d6f9;
+}
+
+/* Mouse ile üzerine gelince ne olsun? */
+.navbar a:hover {
+    color: #ffffff;
+    /* Beyaz olsun */
+}
+
+/* --- ORTA ALAN (HERO) --- */
+.hero {
+    /* Yükseklik ekranın %80'i kadar olsun */
+    height: 80vh;
+
+    /* Arka plan resmi ve yazının okunması için karartma */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1920&auto=format&fit=crop');
+
+    /* Resmi kutuya sığdır */
+    background-size: cover;
+    background-position: center;
+
+    /* Yazıları ortalamak için yine Flexbox açtım */
+    display: flex;
+
+    /* Ama bu sefer yan yana değil, alt alta olsunlar */
+    flex-direction: column;
+
+    /* Tam ortada dursunlar */
+    justify-content: center;
+    align-items: center;
+
+    /* Yazıları da ortalayalım */
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 50px;
+    /* Başlık büyük olsun */
+    margin-bottom: 20px;
+    /* Altına boşluk */
+}
+
+.hero p {
+    font-size: 18px;
+    /* Yazı çok uzamasın diye genişlik sınırı koydum */
+    max-width: 600px;
+    margin-bottom: 30px;
+}
+
+/* BUTON TASARIMI */
+.btn {
+    /* Link olduğu için boyut veremiyordum, bunu yazınca kutu oldu */
+    display: inline-block;
+
+    background-color: white;
+    color: black;
+
+    /* İçindeki boşluklar (B*/
+    padding: 12px 30px;
+
+    /* Köşeleri yuvarlatma */
+    border-radius: 30px;
+
+    /* Kalın yazı */
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #3498db;
+    color: white;
+    /* Yazı beyaz olsun */
+}
+
+/* Fiyat kartlarının olduğu ana kutu (tas2) */
+.pricing-wrapper {
+    /* Kartları alt alta değil, yan yana dizmek için flex kullandım */
+    display: flex;
+
+    /* Kartları sayfanın ortasına topladım */
+    justify-content: center;
+
+    /* Kartlar birbirine yapışmasın diye aralarını açtım */
+    gap: 30px;
+
+    /* Eğer ekran küçülürse kartlar sıkışmasın*/
+    flex-wrap: wrap;
+
+    /* Üstten biraz boşluk bıraktım */
+    margin-top: 50px;
+}
+
+/* Tek tek her bir fiyat kartının ayarı */
+.card {
+    background-color: white;
+    color: black;
+
+    /* Kartın genişliği */
+    width: 300px;
+
+    /* Kenarları yuvarlat */
+    border-radius: 15px;
+
+    /* Kartın içindeki yazılar kenara yapışmasın */
+    padding: 20px;
+
+    /* Yazıları ortala */
+    text-align: center;
+
+    /* Hafif gölge ekledim */
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+}
+
+/* Kartın içindeki listeler*/
+.card ul {
+    list-style: none;
+    /* Maddelerin başındaki noktaları kaldırdım */
+    padding: 20px 0;
+}
+
+.card li {
+    padding: 10px 0;
+    /* Satırların arasını açtım */
+    border-bottom: 1px solid #eee;
+    /* Altlarına ince çizgi çektim */
+}
+
+/* Ekran küçülünceburası çalışacak */
+@media (max-width: 768px) {
+
+    /* Menü sığmıyor, o yüzden alt alta dizdim */
+    .main-header {
+        flex-direction: column;
+        gap: 15px;
+        /* Yapışmasınlar diye arayı açtım */
+    }
+
+    /* Telefondan bakınca başlık çok kocaman kalıyor, küçülttüm */
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    /* Fiyat kutuları telefonda çok ayrık durmasın */
+    .pricing-wrapper {
+        gap: 20px;
+    }
+}
+
+/*EKİP SAYFASI (Team Page) */
+
+/* Başlık ortalansın */
+.baslik-alani {
+    text-align: center;
+    padding: 40px;
+    color: white;
+}
+
+/*KARTLARI TAŞIYAN KUTU (FlexFarm Mantığı)*/
+.kart-tasiyici {
+    display: flex;
+    /* Kutuları yanyana getir */
+    justify-content: center;
+    /* Hepsini ekranın ortasına topla */
+    flex-wrap: wrap;
+    /* Sığmazsa aşağı satıra geçir (Responsive olsun diye) */
+    gap: 30px;
+    /* Kartların birbirine yapışmasını engelle */
+    margin-bottom: 50px;
+}
+
+/*KARTIN ÇERÇEVESİ*/
+.kart {
+    background-color: transparent;
+    width: 280px;
+    /* Kart genişliği */
+    height: 380px;
+    /* Kart yüksekliği */
+    perspective: 1000px;
+}
+
+/* Kartın içindeki dönen kısım */
+.kart-ici {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    /* Dönme hızı (0.8 saniyede dönsün) */
+    transform-style: preserve-3d;
+    /* 3 boyutlu yapıyı koru */
+}
+
+/* Mouse ile üzerine gelince*/
+.kart:hover .kart-ici {
+    transform: rotateY(180deg);
+    /* 180 derece ters çevir */
+}
+
+/*ÖN VE ARKA YÜZ ORTAK AYARLARI*/
+.kart-on,
+.kart-arka {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* Arka yüzü gizleme kodu (Bunu yapmazsak yazılar ters görünür) */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+
+    border-radius: 15px;
+    /* Köşeleri yuvarlat */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* İçindekileri ortala */
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+}
+
+/*KARTIN ÖN YÜZÜ*/
+.kart-on {
+    background-color: #16213e;
+    color: white;
+}
+
+.kart-on img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    /* Resmi yuvarlak yap */
+    border: 4px solid #0f3460;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+/* KARTIN ARKA YÜZÜ*/
+.kart-arka {
+    background-color: #e94560;
+    color: white;
+    transform: rotateY(180deg);
+    /* Başlangıçta arkası dönük olsun */
+    padding: 10px;
+}
+
+/* BENİM SERTİFİKA KARTIM*/
+.ozel-kart {
+    background-color: #f39c12;
+    /* Sertifika olduğu için altın sarısı yaptım */
+    color: black;
+}
+
+.sertifika-resmi {
+    width: 80%;
+    border: 2px solid white;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+/* 1. Ana Kutuyu Güzelleştir */
+.hesaplama-kutusu {
+    background: rgba(255, 255, 255, 0.1); /* Yarı şeffaf beyaz */
+    backdrop-filter: blur(10px);           /* Arkasını buzlu cam gibi bulanıklaştır */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* İnce beyaz çerçeve */
+    border-radius: 20px;                   /* Köşeleri yuvarlat */
+    padding: 40px;                         /* İçeriği kenarlardan uzaklaştır */
+    width: 90%;                            /* Mobilde ekranı kaplasın */
+    max-width: 500px;                      /* Bilgisayarda çok genişlemesin */
+    margin: 50px auto;                     /* Ortala ve üstten boşluk bırak */
+    text-align: center;                    /* Yazıları ortala */
+    color: white;                          /* Yazı rengi beyaz */
+    box-shadow: 0 15px 25px rgba(0,0,0,0.5); /*gölge */
+}
+
+/* 2. Başlıkların Rengi */
+.hesaplama-kutusu h2 {
+    margin-bottom: 10px;
+    font-size: 2rem;
+    color: #f39c12;
+}
+
+/* 3. Kutucukları (Input ve Select) Düzenle */
+.form-elemani {
+    margin-bottom: 20px; /* Her sorunun arasını aç */
+    text-align: left;    /* Soruları sola yasla */
+}
+
+.form-elemani label {
+    display: block;      /* Başlığı kutunun üstüne al */
+    margin-bottom: 8px;  /* Kutuyla başlık arasını aç */
+    font-weight: bold;
+}
+
+/* Yazı yazılan kutular ve seçim listesi */
+.hesaplama-kutusu input[type="number"],
+.hesaplama-kutusu select {
+    width: 100%;         /* Kutuyu tam boy yap */
+    padding: 12px;
+    border-radius: 8px;  /* Köşeleri yumuşat */
+    border: none;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+/* 4. Checkbox (Tık Kutusu) Ayarı */
+.hesaplama-kutusu input[type="checkbox"] {
+    width: auto;         /* Bu kutu küçük kalsın */
+    transform: scale(1.5); /* Biraz büyütelim kolay tıklansın */
+    margin-right: 10px;  /* Yazıyla arasını aç */
+}
+
+/* 5. HESAPLA BUTONU 🚀 */
+.hesaplama-kutusu button {
+    background-color: #e94560;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s; /* Animasyonlu geçiş */
+    width: 100%;
+    margin-top: 10px;
+    box-shadow: 0 5px 15px rgba(233, 69, 96, 0.4); /* Buton parlasın */
+}
+
+/* Butonun üzerine gelince */
+.hesaplama-kutusu button:hover {
+    background-color: #ff2e63;
+    transform: translateY(-3px); /* Hafif yukarı kalksın */
+}
+
+/* 6. Sonuç Ekranı */
+#sonuc-alani {
+    background-color: rgba(255, 255, 255, 0.9); /* Beyaz zemin */
+    color: #16213e;          /* Koyu lacivert yazı */
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    display: none; /* Başlangıçta gizli*/
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teklif Al | Q-Space</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="logo">Q-SPACE</div>
+        <nav class="navbar">
+            <a href="index.html">Ana Sayfa</a>
+            <a href="task2.html">Fiyatlar</a>
+            <a href="team.html">Ekibimiz</a>
+            <a href="teklif.html">Teklif Alın</a>
+        </nav>
+    </header>
+
+
+    <div class="hesaplama-kutusu">
+
+        <h2>🚀 Sınırları Aşın</h2>
+        <p>Eşsiz bir yolculuk planlayalım.</p>
+
+        <div class="form-elemani">
+            <label>Kişi sayısı giriniz.</label>
+            <input type="number" id="yolcu-sayisi" placeholder="Örn: 3" min="1">
+        </div>
+
+        <div class="form-elemani">
+            <label>Paket seçiniz.</label>
+            <select id="gezegen">
+                <option value="mars">Mars Kolonisi</option>
+                <option value="ay">Ay Seyahati</option>
+                <option value="yorunge">Yörünge Turu</option>
+            </select>
+        </div>
+
+        <div class="form-elemani">
+            <label>
+                <input type="checkbox" id="vip-hizmet">
+                Ay taşlarıyla süslenmiş hediye paketi ister misiniz?(+500$) 🌑🎁
+            </label>
+        </div>
+
+        <button onclick="hesapla()">Fiyatı Gör 💰</button>
+
+        <div id="sonuc-alani" style="margin-top: 20px; font-weight: bold; font-size: 1.2rem;">
+        </div>
+
+    </div>
+
+
+    <footer>
+        <p>2026 Q-Space © Tüm Hakları Uzaydadır.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
